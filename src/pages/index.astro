@@ -1,0 +1,543 @@
+---
+const socialLinks = [
+  { name: 'Facebook', href: 'https://www.facebook.com/decolocationmk', icon: 'facebook' },
+  { name: 'TikTok', href: 'https://www.tiktok.com/@decomk7', icon: 'tiktok' },
+  { name: 'Instagram', href: 'https://www.instagram.com/decomkestrie/', icon: 'instagram' },
+];
+
+const services = [
+  {
+    title: 'Mariages & cérémonies',
+    text: 'Des décors élégants pour signer l’entrée, la salle, l’arche, le coin photo et les moments clés d’un mariage.',
+  },
+  {
+    title: 'Galas & soirées privées',
+    text: 'Une ambiance raffinée et mémorable pour transformer une salle en expérience visuelle complète.',
+  },
+  {
+    title: 'Événements corporatifs',
+    text: 'Des mises en scène distinctives pour lancements, réceptions, soirées d’entreprise et activations de marque.',
+  },
+  {
+    title: 'Décors sur mesure',
+    text: 'Couleurs, volumes, matières et accessoires sont adaptés au lieu, au thème et à l’effet recherché.',
+  },
+];
+
+const benefits = [
+  'Une signature visuelle chic pour mariages, galas et événements marquants',
+  'Un univers violet, or et lumineux inspiré du site DécoMK actuel',
+  'Une sélection d’éléments décoratifs disponibles à la location',
+  'Une approche personnalisée pour harmoniser le décor au lieu et à l’occasion',
+];
+
+const process = [
+  { step: '01', title: 'Comprendre l’événement', text: 'On précise le type d’occasion, le lieu, la date, les couleurs et l’ambiance souhaitée.' },
+  { step: '02', title: 'Composer l’expérience', text: 'DécoMK assemble les idées, les accessoires et les éléments de décor pour créer une proposition cohérente.' },
+  { step: '03', title: 'Créer l’effet wow', text: 'Le décor devient un point focal élégant, photogénique et parfaitement adapté au moment.' },
+];
+
+const gallery = [
+  { src: '/images/decomk/101.png', alt: 'Décoration événementielle DécoMK avec fleurs et ballons', tag: 'Décor', title: 'Ambiance de réception' },
+  { src: '/images/decomk/102.png', alt: 'Décor de mariage violet et blanc', tag: 'Mariage', title: 'Mise en scène élégante' },
+  { src: '/images/decomk/103.png', alt: 'Arche et décor photo pour événement', tag: 'Photo', title: 'Coin souvenir' },
+  { src: '/images/decomk/104.png', alt: 'Table décorée pour réception', tag: 'Réception', title: 'Détail de table' },
+  { src: '/images/decomk/105.png', alt: 'Décoration festive événementielle', tag: 'Fête', title: 'Décor célébration' },
+  { src: '/images/decomk/106.png', alt: 'Installation décorative lumineuse', tag: 'Scène', title: 'Décor signature' },
+];
+
+const locationImages = Array.from({ length: 15 }, (_, index) => `/images/decomk/${index + 107}.png`);
+
+const faq = [
+  { q: 'Pour quels types d’événements DécoMK peut créer un décor ?', a: 'DécoMK accompagne les mariages, galas, soirées privées, événements corporatifs, célébrations familiales, séances photo et décors thématiques.' },
+  { q: 'Est-ce possible de louer des éléments décoratifs ?', a: 'Oui. Le site actuel présente une section location; cette nouvelle version conserve cette offre avec une galerie dédiée aux éléments disponibles.' },
+  { q: 'Comment préparer une demande de soumission ?', a: 'Indiquez la date ou la période, le type d’événement, le lieu, le style recherché, les couleurs et les inspirations que vous aimez.' },
+  { q: 'Puis-je envoyer seulement une idée générale ?', a: 'Oui. Le formulaire sert justement à amorcer la discussion; DécoMK pourra ensuite préciser les détails avec vous.' },
+];
+
+const iconPath = {
+  facebook: 'M13.5 21v-7h2.35l.35-2.75H13.5V9.49c0-.8.22-1.35 1.36-1.35h1.45V5.68c-.25-.03-1.12-.1-2.13-.1-2.11 0-3.55 1.29-3.55 3.66v2.01H8.25V14h2.38v7h2.87Z',
+  tiktok: 'M16.99 3c.34 1.86 1.45 3.51 3.01 4.54v2.88a8.34 8.34 0 0 1-2.91-.87v5.24c0 3.84-3.11 6.95-6.95 6.95a6.95 6.95 0 0 1 0-13.9c.3 0 .6.02.89.06v2.84a4.34 4.34 0 0 0-.89-.09 4.15 4.15 0 1 0 4.15 4.15V3h2.7Z',
+  instagram: 'M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3Zm0 1.8a2.7 2.7 0 0 0-2.7 2.7v9a2.7 2.7 0 0 0 2.7 2.7h9a2.7 2.7 0 0 0 2.7-2.7v-9a2.7 2.7 0 0 0-2.7-2.7h-9Zm9.45 1.35a1.05 1.05 0 1 1 0 2.1a1.05 1.05 0 0 1 0-2.1ZM12 7.5A4.5 4.5 0 1 1 7.5 12A4.5 4.5 0 0 1 12 7.5Zm0 1.8A2.7 2.7 0 1 0 14.7 12A2.7 2.7 0 0 0 12 9.3Z',
+};
+---
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DécoMK — Décorations mariages et événements</title>
+    <meta name="description" content="DécoMK conçoit des décors uniques et élégants pour mariages, galas, soirées privées et événements corporatifs, avec location d’éléments décoratifs." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #fbf8ff;
+        --surface: rgba(255, 255, 255, 0.86);
+        --surface-strong: #ffffff;
+        --surface-soft: rgba(255, 255, 255, 0.66);
+        --text: #2e2140;
+        --muted: #665675;
+        --line: rgba(46, 33, 64, 0.11);
+        --line-strong: rgba(46, 33, 64, 0.2);
+        --purple: #5b2c91;
+        --purple-bright: #5e17eb;
+        --purple-soft: #7e48c1;
+        --gold: #ffd700;
+        --gold-deep: #b98610;
+        --shadow: 0 24px 60px rgba(49, 22, 81, 0.16);
+        --shadow-soft: 0 18px 40px rgba(49, 22, 81, 0.1);
+        --radius-xl: 32px;
+        --radius-lg: 24px;
+        --container: min(1180px, calc(100vw - 2rem));
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: 'Playfair Display', Georgia, serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(94, 23, 235, 0.16), transparent 28%),
+          radial-gradient(circle at bottom right, rgba(255, 215, 0, 0.2), transparent 24%),
+          linear-gradient(180deg, #fffdf7 0%, #fbf8ff 45%, #f6f0ff 100%);
+      }
+
+      img { display: block; max-width: 100%; }
+      a { color: inherit; text-decoration: none; }
+      button, input, textarea { font: inherit; }
+      .hidden { position: absolute; opacity: 0; pointer-events: none; width: 1px; height: 1px; }
+      .container { width: var(--container); margin: 0 auto; }
+      .section { padding: 5.6rem 0; }
+      .section-tight { padding: 4.25rem 0; }
+      .card { border-radius: var(--radius-lg); background: var(--surface-strong); border: 1px solid var(--line); box-shadow: var(--shadow); }
+      .section-alt { background: linear-gradient(180deg, rgba(255,255,255,0.58), rgba(255,255,255,0)); }
+      .eyebrow { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.55rem 0.95rem; border-radius: 999px; background: rgba(94, 23, 235, 0.1); border: 1px solid rgba(94, 23, 235, 0.16); color: var(--purple); font-size: 0.8rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+      .section-title { font-size: clamp(2.2rem, 4vw, 4.15rem); line-height: 0.98; letter-spacing: -0.045em; margin: 0.9rem 0 1rem; }
+      .script-title { font-family: 'Dancing Script', cursive; letter-spacing: 0; font-weight: 700; }
+      .section-copy, .service-card p, .process-card p, .faq-card p, .gallery-copy, .contact-copy p, .contact-aside p, .highlight, .hero-pill p { color: var(--muted); line-height: 1.8; }
+
+      .site-header { position: sticky; top: 0; z-index: 60; background: rgba(251, 248, 255, 0.86); border-bottom: 1px solid rgba(46, 33, 64, 0.07); backdrop-filter: blur(14px); }
+      .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 84px; position: relative; }
+      .brand { display: inline-flex; align-items: center; gap: 0.9rem; min-width: 0; }
+      .brand img { width: 56px; height: 56px; flex: 0 0 auto; }
+      .brand-text { min-width: 0; font-weight: 800; font-size: 1.16rem; line-height: 1.05; }
+      .brand-text small { display: block; margin-top: 0.22rem; color: var(--muted); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; }
+      #nav-toggle { position: absolute; opacity: 0; pointer-events: none; }
+      .nav-toggle { display: none; align-items: center; justify-content: center; width: 3rem; height: 3rem; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,0.84); box-shadow: var(--shadow-soft); cursor: pointer; color: var(--text); }
+      .nav-toggle svg { width: 1.25rem; height: 1.25rem; }
+      .site-nav { display: flex; align-items: center; gap: 1.2rem; }
+      .site-nav a { color: var(--muted); font-weight: 700; }
+      .site-nav a:hover { color: var(--purple); }
+      .nav-social, .social-links { display: inline-flex; align-items: center; gap: 0.55rem; }
+      .nav-social-link, .social-link { display: inline-flex; align-items: center; justify-content: center; width: 2.7rem; height: 2.7rem; border-radius: 999px; color: var(--text); background: rgba(255, 255, 255, 0.78); border: 1px solid rgba(46, 33, 64, 0.08); box-shadow: var(--shadow-soft); transition: transform 160ms ease, border-color 160ms ease, color 160ms ease, background 160ms ease; }
+      .nav-social-link:hover, .social-link:hover { transform: translateY(-1px); color: var(--purple-bright); border-color: rgba(94, 23, 235, 0.28); background: rgba(255, 255, 255, 0.96); }
+      .nav-social-link svg, .social-link svg { width: 1.08rem; height: 1.08rem; fill: currentColor; }
+      .button { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; min-height: 3.35rem; padding: 0 1.25rem; border-radius: 999px; border: 1px solid transparent; font-weight: 800; transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, border-color 160ms ease; }
+      .button:hover { transform: translateY(-1px); }
+      .button-primary { color: #fff; background: linear-gradient(135deg, var(--purple), var(--purple-bright) 62%, var(--gold)); box-shadow: 0 18px 40px rgba(94, 23, 235, 0.25); text-shadow: 0 1px 2px rgba(46, 33, 64, 0.35); }
+      .button-secondary { color: var(--text); background: rgba(255, 255, 255, 0.86); border-color: rgba(46, 33, 64, 0.1); }
+
+      .hero { position: relative; overflow: clip; }
+      .hero::before, .hero::after { content: ''; position: absolute; border-radius: 999px; pointer-events: none; }
+      .hero::before { width: 34rem; height: 34rem; right: -12rem; top: -11rem; background: radial-gradient(circle, rgba(94, 23, 235, 0.2), transparent 64%); }
+      .hero::after { width: 24rem; height: 24rem; left: -8rem; bottom: -9rem; background: radial-gradient(circle, rgba(255, 215, 0, 0.18), transparent 68%); }
+      .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr); align-items: center; gap: 2.1rem; }
+      .hero-copy h1 { font-size: clamp(3rem, 7vw, 6.2rem); line-height: 0.93; letter-spacing: -0.055em; margin: 1rem 0 1.2rem; }
+      .hero-copy p { max-width: 39rem; color: var(--muted); font-size: 1.12rem; line-height: 1.86; margin: 0; }
+      .hero-actions { display: flex; flex-wrap: wrap; gap: 0.95rem; margin-top: 2rem; }
+      .hero-highlights { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 2.35rem; }
+      .highlight { padding: 1.1rem 1rem 1.2rem; border-radius: 22px; background: rgba(255,255,255,0.76); border: 1px solid rgba(46, 33, 64, 0.09); box-shadow: var(--shadow-soft); }
+      .highlight strong { display: block; margin-bottom: 0.35rem; font-size: 1.08rem; color: var(--text); }
+      .art-shell { position: relative; min-height: 41rem; padding: 1.25rem; border-radius: var(--radius-xl); background: linear-gradient(180deg, rgba(255,255,255,0.74), rgba(255,255,255,0.3)), linear-gradient(145deg, rgba(94,23,235,0.30), rgba(255,215,0,0.25)); border: 1px solid rgba(255,255,255,0.78); box-shadow: var(--shadow); }
+      .art-stage { position: absolute; inset: 1.15rem; border-radius: 26px; overflow: hidden; background: linear-gradient(180deg, rgba(46, 33, 64, 0.08), rgba(46, 33, 64, 0.02)); }
+      .hero-photo-main { width: 100%; height: 100%; object-fit: cover; }
+      .art-stage::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(46,33,64,0.05), rgba(46,33,64,0.48)); pointer-events: none; }
+      .hero-pill-row { position: absolute; left: 1.25rem; right: 1.25rem; bottom: 1.25rem; z-index: 2; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+      .hero-pill { padding: 1rem 1.05rem; border-radius: 22px; background: rgba(255,255,255,0.95); border: 1px solid rgba(46, 33, 64, 0.09); box-shadow: var(--shadow-soft); }
+      .hero-pill strong { display: block; margin-bottom: 0.35rem; font-size: 1rem; color: var(--text); }
+      .hero-badge { position: absolute; z-index: 2; top: 2rem; left: 2rem; display: inline-flex; align-items: center; gap: 0.75rem; padding: 0.8rem 1rem; border-radius: 999px; background: rgba(255,255,255,0.92); box-shadow: var(--shadow-soft); font-weight: 800; }
+      .hero-badge img { width: 40px; height: 40px; }
+
+      .grid-2, .contact-grid, .band-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+      .intro-card, .service-card, .process-card, .faq-card, .contact-card, .contact-aside { padding: 2rem; }
+      .benefit-list, .contact-mini-list { margin: 1.35rem 0 0; padding: 0; list-style: none; display: grid; gap: 0.95rem; }
+      .benefit-list li, .contact-mini-list li { display: flex; align-items: flex-start; gap: 0.8rem; color: var(--muted); line-height: 1.7; }
+      .benefit-list li::before, .contact-mini-list li::before { content: ''; width: 0.85rem; height: 0.85rem; margin-top: 0.45rem; border-radius: 999px; flex: 0 0 auto; background: linear-gradient(135deg, var(--purple), var(--gold)); }
+      .services-grid, .process-grid, .faq-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.35rem; }
+      .service-card h3, .process-card h3, .faq-card h3 { margin: 0 0 0.85rem; font-size: 1.38rem; }
+      .service-icon, .process-step { width: 3rem; height: 3rem; border-radius: 999px; display: inline-grid; place-items: center; font-weight: 800; margin-bottom: 1.1rem; }
+      .service-icon { background: rgba(94, 23, 235, 0.12); color: var(--purple); }
+      .process-step { background: rgba(255, 215, 0, 0.18); color: var(--gold-deep); }
+      .gallery-wrap { padding: 1.5rem; border-radius: calc(var(--radius-xl) + 4px); background: linear-gradient(180deg, rgba(255,255,255,0.84), rgba(255,255,255,0.96)); border: 1px solid rgba(46, 33, 64, 0.08); box-shadow: var(--shadow); }
+      .gallery-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.25rem; margin-bottom: 1.6rem; }
+      .gallery-copy { max-width: 42rem; margin: 0; }
+      .gallery-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+      .gallery-card { overflow: hidden; border-radius: 22px; background: white; border: 1px solid rgba(46, 33, 64, 0.07); box-shadow: var(--shadow-soft); margin: 0; }
+      .gallery-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+      .gallery-card figcaption { padding: 1rem 1rem 1.1rem; display: grid; gap: 0.45rem; }
+      .gallery-topline { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
+      .tag { display: inline-flex; align-items: center; min-height: 2rem; padding: 0 0.8rem; border-radius: 999px; background: rgba(255, 215, 0, 0.18); color: var(--gold-deep); font-size: 0.8rem; font-weight: 800; }
+      .gallery-title { font-weight: 800; }
+      .location-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.9rem; }
+      .location-grid img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 18px; box-shadow: 0 14px 28px rgba(46, 33, 64, 0.14); border: 1px solid rgba(255,255,255,0.5); }
+      .band { position: relative; overflow: hidden; background: linear-gradient(135deg, rgba(91,44,145,0.98), rgba(94,23,235,0.96) 64%, rgba(255,215,0,0.82)); color: white; }
+      .band::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 15% 20%, rgba(255,255,255,0.20), transparent 20%), radial-gradient(circle at 82% 80%, rgba(255,255,255,0.18), transparent 18%); }
+      .band-grid { position: relative; z-index: 1; align-items: center; }
+      .band .eyebrow { color: white; background: rgba(255,255,255,0.17); border-color: rgba(255,255,255,0.24); }
+      .band p, .band .section-title { color: white; }
+      .process-panel { padding: 1.9rem; border-radius: var(--radius-lg); background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.22); backdrop-filter: blur(10px); }
+      .contact-grid { grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.04fr); }
+      .contact-form { display: flex; flex-direction: column; gap: 1.4rem; }
+      .field-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+      .field, .field-area { width: 100%; border: 1px solid rgba(46, 33, 64, 0.12); background: rgba(255,255,255,0.94); color: var(--text); border-radius: 18px; padding: 1rem 1.05rem; transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease; }
+      .field { min-height: 3.4rem; }
+      .field::placeholder, .field-area::placeholder { color: #85738f; }
+      .field:focus, .field-area:focus { outline: none; border-color: rgba(94, 23, 235, 0.58); box-shadow: 0 0 0 4px rgba(94, 23, 235, 0.12); background: white; }
+      .field-area { min-height: 10rem; resize: vertical; }
+      .form-status { display: none; border-radius: 18px; padding: 0.95rem 1rem; font-size: 0.98rem; }
+      .form-status.is-success { background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.2); color: #166534; }
+      .form-status.is-error { background: rgba(220, 38, 38, 0.08); border: 1px solid rgba(220, 38, 38, 0.16); color: #b42318; }
+      .contact-actions { display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap; }
+      .contact-aside { display: grid; gap: 1rem; align-content: start; }
+      .aside-panel { padding: 1.25rem; border-radius: 20px; background: rgba(255,255,255,0.76); border: 1px solid rgba(46, 33, 64, 0.08); }
+      .aside-panel strong { display: block; margin-bottom: 0.35rem; }
+      footer { padding: 2.5rem 0 3rem; }
+      .footer-card { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.2rem 1.35rem; }
+      .footer-brand { display: inline-flex; align-items: center; gap: 0.9rem; }
+      .footer-brand img { width: 52px; height: 52px; }
+      .footer-note { color: var(--muted); font-size: 0.95rem; }
+
+      @media (max-width: 1080px) {
+        .hero-grid, .contact-grid, .band-grid, .grid-2, .gallery-grid, .services-grid, .process-grid, .faq-grid { grid-template-columns: 1fr; }
+        .hero-highlights { grid-template-columns: 1fr; }
+        .gallery-head, .footer-card { flex-direction: column; align-items: flex-start; }
+        .art-shell { min-height: 34rem; }
+        .location-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      }
+      @media (max-width: 900px) {
+        .section { padding: 4.3rem 0; }
+        .section-tight { padding: 3.1rem 0 3.6rem; }
+        .nav-toggle { display: inline-flex; }
+        .site-nav { position: absolute; top: calc(100% + 0.65rem); left: 0; right: 0; display: grid; gap: 0.35rem; padding: 0.8rem; border-radius: 24px; background: rgba(255, 252, 251, 0.98); border: 1px solid rgba(46, 33, 64, 0.09); box-shadow: var(--shadow); opacity: 0; pointer-events: none; transform: translateY(-8px); transition: opacity 160ms ease, transform 160ms ease; }
+        .site-nav a { min-height: 3rem; display: flex; align-items: center; justify-content: flex-start; padding: 0 0.95rem; border-radius: 16px; color: var(--text); }
+        .nav-social { margin: 0.35rem 0 0; padding: 0.55rem 0.2rem 0.15rem; border-top: 1px solid rgba(46, 33, 64, 0.08); justify-content: flex-start; }
+        .site-nav .nav-social-link { width: 2.9rem; height: 2.9rem; min-height: 2.9rem; padding: 0; justify-content: center; }
+        .site-nav a.button { justify-content: center; margin-top: 0.35rem; }
+        #nav-toggle:checked ~ .site-nav { opacity: 1; pointer-events: auto; transform: translateY(0); }
+        #nav-toggle:checked + .nav-toggle .icon-open, .nav-toggle .icon-close { display: none; }
+        #nav-toggle:checked + .nav-toggle .icon-close { display: block; }
+        .field-grid { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 720px) {
+        .brand img { width: 50px; height: 50px; }
+        .brand-text { font-size: 1rem; }
+        .brand-text small { font-size: 0.68rem; letter-spacing: 0.09em; }
+        .hero-copy h1 { font-size: clamp(2.55rem, 11vw, 4.2rem); }
+        .hero-copy p, .section-copy, .gallery-copy { font-size: 1rem; }
+        .art-shell { min-height: 30rem; }
+        .hero-pill-row { left: 0.9rem; right: 0.9rem; bottom: 0.9rem; grid-template-columns: 1fr; }
+        .hero-pill { padding: 0.9rem 0.95rem; }
+        .hero-badge { top: 1.4rem; left: 1.4rem; }
+        .intro-card, .service-card, .process-card, .faq-card, .contact-card, .contact-aside { padding: 1.45rem; }
+        .gallery-wrap { padding: 1rem; }
+        .location-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#accueil" aria-label="Retour à l’accueil DécoMK">
+          <img src="/logo-decomk.svg" alt="Logo DécoMK" />
+          <span class="brand-text">DécoMK<small>Décorations mariages & événements</small></span>
+        </a>
+
+        <input id="nav-toggle" type="checkbox" />
+        <label class="nav-toggle" for="nav-toggle" aria-label="Ouvrir le menu">
+          <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg>
+          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
+        </label>
+
+        <nav class="site-nav" aria-label="Navigation principale">
+          <a href="#services">Services</a>
+          <a href="#realisations">Réalisations</a>
+          <a href="#location">Location</a>
+          <a href="#faq">FAQ</a>
+          <div class="nav-social" aria-label="Réseaux sociaux DécoMK">
+            {socialLinks.map((social) => (
+              <a class="nav-social-link" href={social.href} target="_blank" rel="noopener noreferrer" aria-label={`${social.name} DécoMK`} title={social.name}>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d={iconPath[social.icon]} /></svg>
+              </a>
+            ))}
+          </div>
+          <a class="button button-primary" href="#contact">Contactez-nous</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="accueil">
+      <section class="hero section-tight">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">Décorations mariages et événements</span>
+            <h1>Des décors uniques et élégants pour vos moments marquants.</h1>
+            <p>DécoMK conçoit des ambiances décoratives pour mariages, galas, soirées privées et événements corporatifs. Chaque décor est pensé pour sublimer le lieu, créer une émotion immédiate et offrir un souvenir photogénique.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#realisations">Voir les réalisations</a>
+              <a class="button button-secondary" href="tel:+18195881387">819.588.1387</a>
+            </div>
+            <div class="hero-highlights" aria-label="Points forts">
+              <div class="highlight"><strong>Sur mesure</strong>Un décor adapté au thème, aux couleurs et au lieu.</div>
+              <div class="highlight"><strong>Location</strong>Une sélection d’éléments décoratifs pour compléter l’ambiance.</div>
+              <div class="highlight"><strong>Événementiel</strong>Mariages, galas, privés, corporatifs et célébrations.</div>
+            </div>
+          </div>
+
+          <div class="hero-art" aria-hidden="true">
+            <div class="art-shell">
+              <div class="art-stage">
+                <img class="hero-photo-main" src="/images/decomk/120.png" alt="" />
+                <div class="hero-badge"><img src="/logo-decomk.svg" alt="" /> DécoMK</div>
+                <div class="hero-pill-row">
+                  <div class="hero-pill"><strong>Spécialisée en décorations</strong><p>Un univers chic pour les événements et mariages.</p></div>
+                  <div class="hero-pill"><strong>Palette violette & or</strong><p>Une identité lumineuse inspirée du site actuel.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container grid-2">
+          <article class="card intro-card">
+            <span class="eyebrow">Univers DécoMK</span>
+            <h2 class="section-title script-title">Un décor qui donne le ton dès le premier regard.</h2>
+            <p class="section-copy">Le site actuel présente une proposition simple et directe: créer des décors pour les événements importants. Cette version reprend ce contenu, les couleurs violet et or, les liens sociaux et les photos existantes dans une présentation Astro plus premium.</p>
+          </article>
+          <article class="card intro-card">
+            <span class="eyebrow">Pourquoi DécoMK</span>
+            <ul class="benefit-list">{benefits.map((item) => <li>{item}</li>)}</ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="container">
+          <span class="eyebrow">Nos services</span>
+          <h2 class="section-title">Des décors uniques et élégants pour vos événements marquants.</h2>
+          <div class="services-grid">
+            {services.map((service, index) => (
+              <article class="card service-card">
+                <div class="service-icon">0{index + 1}</div>
+                <h3>{service.title}</h3>
+                <p>{service.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="realisations">
+        <div class="container gallery-wrap">
+          <div class="gallery-head">
+            <div>
+              <span class="eyebrow">Réalisations</span>
+              <h2 class="section-title">Des inspirations pour imaginer votre décor.</h2>
+            </div>
+            <p class="gallery-copy">Les images proviennent du site DécoMK actuel et servent de base visuelle à cette nouvelle version: décors, compositions, ambiances et détails prêts à inspirer un projet.</p>
+          </div>
+          <div class="gallery-grid">
+            {gallery.map((item) => (
+              <figure class="gallery-card">
+                <img src={item.src} alt={item.alt} loading="lazy" />
+                <figcaption>
+                  <div class="gallery-topline"><strong>{item.tag}</strong><span class="tag">DécoMK</span></div>
+                  <span class="gallery-title">{item.title}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section band" id="processus">
+        <div class="container band-grid">
+          <div>
+            <span class="eyebrow">Processus</span>
+            <h2 class="section-title">Une approche simple pour passer de l’idée au décor.</h2>
+            <p>DécoMK part de votre événement, de votre lieu et de vos inspirations pour composer une ambiance cohérente, élégante et facile à visualiser avant le grand jour.</p>
+          </div>
+          <div class="process-panel">
+            <div class="process-grid">
+              {process.map((item) => (
+                <article class="process-card">
+                  <div class="process-step">{item.step}</div>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="location">
+        <div class="container gallery-wrap">
+          <div class="gallery-head">
+            <div>
+              <span class="eyebrow">Location</span>
+              <h2 class="section-title">Une sélection d’éléments décoratifs à louer.</h2>
+            </div>
+            <p class="gallery-copy">Découvrez une partie de la sélection présentée sur le site actuel pour sublimer mariages, célébrations et événements.</p>
+          </div>
+          <div class="location-grid">
+            {locationImages.map((src, index) => <img src={src} alt={`Élément décoratif en location ${index + 1}`} loading="lazy" />)}
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="container">
+          <span class="eyebrow">Questions fréquentes</span>
+          <h2 class="section-title">Tout ce qu’il faut pour lancer votre demande.</h2>
+          <div class="faq-grid">
+            {faq.map((item) => (
+              <article class="card faq-card"><h3>{item.q}</h3><p>{item.a}</p></article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="contact">
+        <div class="container contact-grid">
+          <article class="card contact-card">
+            <span class="eyebrow">Contact</span>
+            <h2 class="section-title">Parlez-nous du décor que vous imaginez.</h2>
+            <p class="section-copy contact-copy">Partagez les grandes lignes de votre événement et DécoMK pourra vous recontacter avec une proposition adaptée.</p>
+            <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit" method="post">
+              <input type="hidden" name="access_key" value="d525da3f-1198-4e7d-a62c-980f2450c415" />
+              <input type="hidden" name="subject" value="Nouveau contact depuis le site DécoMK" />
+              <input type="hidden" name="from_name" value="DécoMK website" />
+              <input type="hidden" name="redirect" value="/index.html?sent=1#contact" />
+              <input type="hidden" name="source" value="DécoMK contact form" />
+              <input type="hidden" name="lang" value="fr" />
+              <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+              <div class="field-grid">
+                <input class="field" type="text" name="name" placeholder="Nom" required />
+                <input class="field" type="email" name="email" placeholder="Courriel" required />
+                <input class="field" type="tel" name="phone" placeholder="Téléphone" />
+                <input class="field" type="text" name="event_date" placeholder="Date ou période souhaitée" />
+              </div>
+              <textarea class="field-area" name="message" rows="5" required placeholder="Décrivez brièvement votre projet : type d’événement, lieu, ambiance recherchée, couleurs, éléments à louer ou inspirations..."></textarea>
+              <div id="form-success" class="form-status is-success">✅ Votre message a été envoyé. Nous vous répondrons sous peu.</div>
+              <div id="form-error" class="form-status is-error">⚠️ <span id="form-error-text">Impossible d’envoyer le message pour le moment. Réessayez un peu plus tard.</span></div>
+              <div class="contact-actions">
+                <button type="submit" id="contact-submit" class="button button-primary"><span id="submit-label">Envoyer la demande</span><span id="submit-loading" style="display:none;">Envoi…</span></button>
+                <a class="button button-secondary" href="tel:+18195881387">819.588.1387</a>
+              </div>
+            </form>
+          </article>
+
+          <article class="card contact-aside">
+            <span class="eyebrow">Coordonnées</span>
+            <h2 class="section-title">Contactez-nous.</h2>
+            <p>Pour une demande rapide, vous pouvez appeler DécoMK ou envoyer les détails via le formulaire.</p>
+            <div class="aside-panel"><strong>Téléphone</strong><p><a href="tel:+18195881387">819.588.1387</a></p></div>
+            <div class="aside-panel"><strong>Types de projets</strong><p>Mariages, galas, soirées privées, événements corporatifs, célébrations et location d’éléments décoratifs.</p></div>
+            <div class="aside-panel">
+              <strong>Réseaux sociaux</strong>
+              <p>Suivez DécoMK pour voir les nouveautés, les inspirations et les réalisations.</p>
+              <div class="social-links">
+                {socialLinks.map((social) => (
+                  <a class="social-link" href={social.href} target="_blank" rel="noopener noreferrer" aria-label={`${social.name} DécoMK`} title={social.name}>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d={iconPath[social.icon]} /></svg>
+                  </a>
+                ))}
+              </div>
+            </div>
+            <ul class="contact-mini-list">
+              <li>Indiquez le type d’événement et le nombre approximatif d’invités.</li>
+              <li>Ajoutez la date, le lieu et les couleurs souhaitées.</li>
+              <li>Précisez si vous voulez un décor complet ou des éléments en location.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container card footer-card">
+        <div class="footer-brand">
+          <img src="/logo-decomk.svg" alt="Logo DécoMK" />
+          <div><strong>DécoMK</strong><div class="footer-note">Décorations mariages et événements.</div></div>
+        </div>
+        <div>
+          <div class="footer-note">© 2025 DécoMK - Tous droits réservés</div>
+          <div class="social-links">
+            {socialLinks.map((social) => (
+              <a class="social-link" href={social.href} target="_blank" rel="noopener noreferrer" aria-label={`${social.name} DécoMK`} title={social.name}>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d={iconPath[social.icon]} /></svg>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script is:inline>
+      (() => {
+        const form = document.getElementById('contact-form');
+        const success = document.getElementById('form-success');
+        const error = document.getElementById('form-error');
+        const errorText = document.getElementById('form-error-text');
+        const submit = document.getElementById('contact-submit');
+        const submitLabel = document.getElementById('submit-label');
+        const submitLoading = document.getElementById('submit-loading');
+        const redirect = form?.querySelector('input[name="redirect"]');
+        const navToggle = document.getElementById('nav-toggle');
+        const navLinks = document.querySelectorAll('.site-nav a');
+
+        if (redirect instanceof HTMLInputElement) {
+          redirect.value = `${window.location.origin}${window.location.pathname}?sent=1#contact`;
+        }
+        if (new URLSearchParams(window.location.search).get('sent') === '1') {
+          if (success) success.style.display = 'block';
+          window.history.replaceState({}, document.title, `${window.location.pathname}#contact`);
+        }
+        navLinks.forEach((link) => link.addEventListener('click', () => {
+          if (navToggle instanceof HTMLInputElement) navToggle.checked = false;
+        }));
+        if (!(form instanceof HTMLFormElement)) return;
+        form.addEventListener('submit', async (event) => {
+          event.preventDefault();
+          if (!(submit instanceof HTMLButtonElement)) return;
+          if (success) success.style.display = 'none';
+          if (error) error.style.display = 'none';
+          submit.disabled = true;
+          if (submitLabel instanceof HTMLElement) submitLabel.style.display = 'none';
+          if (submitLoading instanceof HTMLElement) submitLoading.style.display = 'inline';
+          try {
+            const response = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+            const data = await response.json().catch(() => ({}));
+            if (!response.ok) throw new Error(data?.message || 'Erreur lors de l’envoi.');
+            form.reset();
+            if (success) success.style.display = 'block';
+            window.location.hash = 'contact';
+          } catch (err) {
+            if (errorText instanceof HTMLElement) errorText.textContent = err instanceof Error ? err.message : 'Impossible d’envoyer le message pour le moment.';
+            if (error) error.style.display = 'block';
+          } finally {
+            submit.disabled = false;
+            if (submitLabel instanceof HTMLElement) submitLabel.style.display = 'inline';
+            if (submitLoading instanceof HTMLElement) submitLoading.style.display = 'none';
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
