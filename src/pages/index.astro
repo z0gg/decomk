@@ -26,7 +26,7 @@ const services = [
 
 const benefits = [
   'Une signature visuelle chic pour mariages, galas et événements marquants',
-  'Un univers violet, or et lumineux inspiré du site DécoMK actuel',
+  'Une palette mauve raffinée inspirée de l’ancien site DécoMK',
   'Une sélection d’éléments décoratifs disponibles à la location',
   'Une approche personnalisée pour harmoniser le décor au lieu et à l’occasion',
 ];
@@ -37,13 +37,10 @@ const process = [
   { step: '03', title: 'Créer l’effet wow', text: 'Le décor devient un point focal élégant, photogénique et parfaitement adapté au moment.' },
 ];
 
-const gallery = [
-  { src: '/images/decomk/101.png', alt: 'Décoration événementielle DécoMK avec fleurs et ballons', tag: 'Décor', title: 'Ambiance de réception' },
-  { src: '/images/decomk/102.png', alt: 'Décor de mariage violet et blanc', tag: 'Mariage', title: 'Mise en scène élégante' },
-  { src: '/images/decomk/103.png', alt: 'Arche et décor photo pour événement', tag: 'Photo', title: 'Coin souvenir' },
-  { src: '/images/decomk/104.png', alt: 'Table décorée pour réception', tag: 'Réception', title: 'Détail de table' },
-  { src: '/images/decomk/105.png', alt: 'Décoration festive événementielle', tag: 'Fête', title: 'Décor célébration' },
-  { src: '/images/decomk/106.png', alt: 'Installation décorative lumineuse', tag: 'Scène', title: 'Décor signature' },
+const realizationPlaceholders = [
+  { tag: 'Mariage', title: 'Ambiance de cérémonie', text: 'Espace réservé pour vos prochaines photos de mariages et décors de cérémonie.' },
+  { tag: 'Gala', title: 'Décor de réception', text: 'Un aperçu pourra présenter les salles transformées, les tables et les détails lumineux.' },
+  { tag: 'Corporatif', title: 'Événement signature', text: 'Les futures images montreront les lancements, soirées et activations de marque.' },
 ];
 
 const locationImages = Array.from({ length: 15 }, (_, index) => `/images/decomk/${index + 107}.png`);
@@ -71,7 +68,7 @@ const iconPath = {
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Monoton&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet" />
     <style>
       :root {
         --bg: #fbf8ff;
@@ -83,10 +80,11 @@ const iconPath = {
         --line: rgba(46, 33, 64, 0.11);
         --line-strong: rgba(46, 33, 64, 0.2);
         --purple: #5b2c91;
-        --purple-bright: #5e17eb;
-        --purple-soft: #7e48c1;
-        --gold: #ffd700;
-        --gold-deep: #b98610;
+        --purple-bright: #6d35c9;
+        --purple-soft: #8b5bd6;
+        --lavender: #c9b6ff;
+        --plum: #3b225f;
+        --mauve: #a77fe8;
         --shadow: 0 24px 60px rgba(49, 22, 81, 0.16);
         --shadow-soft: 0 18px 40px rgba(49, 22, 81, 0.1);
         --radius-xl: 32px;
@@ -102,8 +100,8 @@ const iconPath = {
         color: var(--text);
         background:
           radial-gradient(circle at top left, rgba(94, 23, 235, 0.16), transparent 28%),
-          radial-gradient(circle at bottom right, rgba(255, 215, 0, 0.2), transparent 24%),
-          linear-gradient(180deg, #fffdf7 0%, #fbf8ff 45%, #f6f0ff 100%);
+          radial-gradient(circle at bottom right, rgba(167, 127, 232, 0.18), transparent 24%),
+          linear-gradient(180deg, #fffbff 0%, #fbf8ff 45%, #f5efff 100%);
       }
 
       img { display: block; max-width: 100%; }
@@ -123,7 +121,7 @@ const iconPath = {
       .site-header { position: sticky; top: 0; z-index: 60; background: rgba(251, 248, 255, 0.86); border-bottom: 1px solid rgba(46, 33, 64, 0.07); backdrop-filter: blur(14px); }
       .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 84px; position: relative; }
       .brand { display: inline-flex; align-items: center; gap: 0.9rem; min-width: 0; }
-      .brand img { width: 56px; height: 56px; flex: 0 0 auto; }
+      .brand-mark { font-family: 'Monoton', cursive; color: var(--purple); font-size: clamp(1.55rem, 2.4vw, 2.2rem); line-height: 1; letter-spacing: 0.03em; text-transform: uppercase; }
       .brand-text { min-width: 0; font-weight: 800; font-size: 1.16rem; line-height: 1.05; }
       .brand-text small { display: block; margin-top: 0.22rem; color: var(--muted); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; }
       #nav-toggle { position: absolute; opacity: 0; pointer-events: none; }
@@ -138,13 +136,13 @@ const iconPath = {
       .nav-social-link svg, .social-link svg { width: 1.08rem; height: 1.08rem; fill: currentColor; }
       .button { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; min-height: 3.35rem; padding: 0 1.25rem; border-radius: 999px; border: 1px solid transparent; font-weight: 800; transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, border-color 160ms ease; }
       .button:hover { transform: translateY(-1px); }
-      .button-primary { color: #fff; background: linear-gradient(135deg, var(--purple), var(--purple-bright) 62%, var(--gold)); box-shadow: 0 18px 40px rgba(94, 23, 235, 0.25); text-shadow: 0 1px 2px rgba(46, 33, 64, 0.35); }
+      .button-primary { color: #fff; background: linear-gradient(135deg, var(--plum), var(--purple), var(--purple-soft)); box-shadow: 0 18px 40px rgba(94, 23, 235, 0.24); text-shadow: 0 1px 2px rgba(46, 33, 64, 0.35); }
       .button-secondary { color: var(--text); background: rgba(255, 255, 255, 0.86); border-color: rgba(46, 33, 64, 0.1); }
 
       .hero { position: relative; overflow: clip; }
       .hero::before, .hero::after { content: ''; position: absolute; border-radius: 999px; pointer-events: none; }
       .hero::before { width: 34rem; height: 34rem; right: -12rem; top: -11rem; background: radial-gradient(circle, rgba(94, 23, 235, 0.2), transparent 64%); }
-      .hero::after { width: 24rem; height: 24rem; left: -8rem; bottom: -9rem; background: radial-gradient(circle, rgba(255, 215, 0, 0.18), transparent 68%); }
+      .hero::after { width: 24rem; height: 24rem; left: -8rem; bottom: -9rem; background: radial-gradient(circle, rgba(167, 127, 232, 0.2), transparent 68%); }
       .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr); align-items: center; gap: 2.1rem; }
       .hero-copy h1 { font-size: clamp(3rem, 7vw, 6.2rem); line-height: 0.93; letter-spacing: -0.055em; margin: 1rem 0 1.2rem; }
       .hero-copy p { max-width: 39rem; color: var(--muted); font-size: 1.12rem; line-height: 1.86; margin: 0; }
@@ -152,39 +150,42 @@ const iconPath = {
       .hero-highlights { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 2.35rem; }
       .highlight { padding: 1.1rem 1rem 1.2rem; border-radius: 22px; background: rgba(255,255,255,0.76); border: 1px solid rgba(46, 33, 64, 0.09); box-shadow: var(--shadow-soft); }
       .highlight strong { display: block; margin-bottom: 0.35rem; font-size: 1.08rem; color: var(--text); }
-      .art-shell { position: relative; min-height: 41rem; padding: 1.25rem; border-radius: var(--radius-xl); background: linear-gradient(180deg, rgba(255,255,255,0.74), rgba(255,255,255,0.3)), linear-gradient(145deg, rgba(94,23,235,0.30), rgba(255,215,0,0.25)); border: 1px solid rgba(255,255,255,0.78); box-shadow: var(--shadow); }
-      .art-stage { position: absolute; inset: 1.15rem; border-radius: 26px; overflow: hidden; background: linear-gradient(180deg, rgba(46, 33, 64, 0.08), rgba(46, 33, 64, 0.02)); }
-      .hero-photo-main { width: 100%; height: 100%; object-fit: cover; }
-      .art-stage::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(46,33,64,0.05), rgba(46,33,64,0.48)); pointer-events: none; }
+      .art-shell { position: relative; min-height: 36rem; padding: 1.25rem; border-radius: var(--radius-xl); background: linear-gradient(180deg, rgba(255,255,255,0.76), rgba(255,255,255,0.38)), linear-gradient(145deg, rgba(91,44,145,0.26), rgba(167,127,232,0.26)); border: 1px solid rgba(255,255,255,0.78); box-shadow: var(--shadow); }
+      .art-stage { position: absolute; inset: 1.15rem; border-radius: 26px; overflow: hidden; display: grid; place-items: center; padding: 2rem; background: radial-gradient(circle at 20% 20%, rgba(201,182,255,0.62), transparent 34%), radial-gradient(circle at 80% 85%, rgba(91,44,145,0.22), transparent 38%), linear-gradient(145deg, rgba(255,255,255,0.95), rgba(246,240,255,0.82)); }
+      .brand-display { position: relative; z-index: 2; text-align: center; color: var(--purple); }
+      .brand-display .logo-word { font-family: 'Monoton', cursive; font-size: clamp(3.4rem, 8vw, 6.8rem); line-height: 0.95; letter-spacing: 0.02em; text-transform: uppercase; color: var(--purple); text-shadow: 0 18px 36px rgba(91,44,145,0.16); }
+      .brand-display .logo-subtitle { margin-top: 1.2rem; font-size: 1rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+      .art-stage::after { content: ''; position: absolute; inset: auto 12% 12% 12%; height: 1px; background: linear-gradient(90deg, transparent, rgba(91,44,145,0.28), transparent); pointer-events: none; }
       .hero-pill-row { position: absolute; left: 1.25rem; right: 1.25rem; bottom: 1.25rem; z-index: 2; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
       .hero-pill { padding: 1rem 1.05rem; border-radius: 22px; background: rgba(255,255,255,0.95); border: 1px solid rgba(46, 33, 64, 0.09); box-shadow: var(--shadow-soft); }
       .hero-pill strong { display: block; margin-bottom: 0.35rem; font-size: 1rem; color: var(--text); }
-      .hero-badge { position: absolute; z-index: 2; top: 2rem; left: 2rem; display: inline-flex; align-items: center; gap: 0.75rem; padding: 0.8rem 1rem; border-radius: 999px; background: rgba(255,255,255,0.92); box-shadow: var(--shadow-soft); font-weight: 800; }
-      .hero-badge img { width: 40px; height: 40px; }
+      .hero-badge { position: absolute; z-index: 2; top: 2rem; left: 2rem; display: inline-flex; align-items: center; gap: 0.75rem; padding: 0.8rem 1rem; border-radius: 999px; background: rgba(255,255,255,0.92); box-shadow: var(--shadow-soft); font-weight: 800; color: var(--purple); }
 
       .grid-2, .contact-grid, .band-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
       .intro-card, .service-card, .process-card, .faq-card, .contact-card, .contact-aside { padding: 2rem; }
       .benefit-list, .contact-mini-list { margin: 1.35rem 0 0; padding: 0; list-style: none; display: grid; gap: 0.95rem; }
       .benefit-list li, .contact-mini-list li { display: flex; align-items: flex-start; gap: 0.8rem; color: var(--muted); line-height: 1.7; }
-      .benefit-list li::before, .contact-mini-list li::before { content: ''; width: 0.85rem; height: 0.85rem; margin-top: 0.45rem; border-radius: 999px; flex: 0 0 auto; background: linear-gradient(135deg, var(--purple), var(--gold)); }
+      .benefit-list li::before, .contact-mini-list li::before { content: ''; width: 0.85rem; height: 0.85rem; margin-top: 0.45rem; border-radius: 999px; flex: 0 0 auto; background: linear-gradient(135deg, var(--purple), var(--mauve)); }
       .services-grid, .process-grid, .faq-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.35rem; }
       .service-card h3, .process-card h3, .faq-card h3 { margin: 0 0 0.85rem; font-size: 1.38rem; }
       .service-icon, .process-step { width: 3rem; height: 3rem; border-radius: 999px; display: inline-grid; place-items: center; font-weight: 800; margin-bottom: 1.1rem; }
       .service-icon { background: rgba(94, 23, 235, 0.12); color: var(--purple); }
-      .process-step { background: rgba(255, 215, 0, 0.18); color: var(--gold-deep); }
+      .process-step { background: rgba(201, 182, 255, 0.24); color: var(--plum); }
       .gallery-wrap { padding: 1.5rem; border-radius: calc(var(--radius-xl) + 4px); background: linear-gradient(180deg, rgba(255,255,255,0.84), rgba(255,255,255,0.96)); border: 1px solid rgba(46, 33, 64, 0.08); box-shadow: var(--shadow); }
       .gallery-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.25rem; margin-bottom: 1.6rem; }
       .gallery-copy { max-width: 42rem; margin: 0; }
       .gallery-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
       .gallery-card { overflow: hidden; border-radius: 22px; background: white; border: 1px solid rgba(46, 33, 64, 0.07); box-shadow: var(--shadow-soft); margin: 0; }
-      .gallery-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
-      .gallery-card figcaption { padding: 1rem 1rem 1.1rem; display: grid; gap: 0.45rem; }
+      .gallery-card-body { padding: 1.25rem; display: grid; gap: 0.65rem; }
+      .placeholder-card { position: relative; min-height: 15rem; background: linear-gradient(145deg, rgba(255,255,255,0.96), rgba(246,240,255,0.9)); }
+      .placeholder-glow { height: 6.4rem; background: radial-gradient(circle at 25% 30%, rgba(139,91,214,0.28), transparent 32%), radial-gradient(circle at 74% 70%, rgba(201,182,255,0.5), transparent 38%), linear-gradient(135deg, rgba(91,44,145,0.12), rgba(167,127,232,0.12)); border-bottom: 1px solid rgba(46,33,64,0.06); }
+      .placeholder-card p { margin: 0; color: var(--muted); line-height: 1.7; }
       .gallery-topline { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
-      .tag { display: inline-flex; align-items: center; min-height: 2rem; padding: 0 0.8rem; border-radius: 999px; background: rgba(255, 215, 0, 0.18); color: var(--gold-deep); font-size: 0.8rem; font-weight: 800; }
+      .tag { display: inline-flex; align-items: center; min-height: 2rem; padding: 0 0.8rem; border-radius: 999px; background: rgba(167, 127, 232, 0.16); color: var(--purple); font-size: 0.8rem; font-weight: 800; }
       .gallery-title { font-weight: 800; }
       .location-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.9rem; }
       .location-grid img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 18px; box-shadow: 0 14px 28px rgba(46, 33, 64, 0.14); border: 1px solid rgba(255,255,255,0.5); }
-      .band { position: relative; overflow: hidden; background: linear-gradient(135deg, rgba(91,44,145,0.98), rgba(94,23,235,0.96) 64%, rgba(255,215,0,0.82)); color: white; }
+      .band { position: relative; overflow: hidden; background: linear-gradient(135deg, rgba(59,34,95,0.98), rgba(91,44,145,0.96) 58%, rgba(139,91,214,0.92)); color: white; }
       .band::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 15% 20%, rgba(255,255,255,0.20), transparent 20%), radial-gradient(circle at 82% 80%, rgba(255,255,255,0.18), transparent 18%); }
       .band-grid { position: relative; z-index: 1; align-items: center; }
       .band .eyebrow { color: white; background: rgba(255,255,255,0.17); border-color: rgba(255,255,255,0.24); }
@@ -208,7 +209,7 @@ const iconPath = {
       footer { padding: 2.5rem 0 3rem; }
       .footer-card { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.2rem 1.35rem; }
       .footer-brand { display: inline-flex; align-items: center; gap: 0.9rem; }
-      .footer-brand img { width: 52px; height: 52px; }
+      .footer-brand .brand-mark { font-size: 1.7rem; }
       .footer-note { color: var(--muted); font-size: 0.95rem; }
 
       @media (max-width: 1080px) {
@@ -233,7 +234,7 @@ const iconPath = {
         .field-grid { grid-template-columns: 1fr; }
       }
       @media (max-width: 720px) {
-        .brand img { width: 50px; height: 50px; }
+        .brand-mark { font-size: 1.45rem; }
         .brand-text { font-size: 1rem; }
         .brand-text small { font-size: 0.68rem; letter-spacing: 0.09em; }
         .hero-copy h1 { font-size: clamp(2.55rem, 11vw, 4.2rem); }
@@ -252,8 +253,8 @@ const iconPath = {
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="#accueil" aria-label="Retour à l’accueil DécoMK">
-          <img src="/logo-decomk.svg" alt="Logo DécoMK" />
-          <span class="brand-text">DécoMK<small>Décorations mariages & événements</small></span>
+          <span class="brand-mark" aria-hidden="true">DECOMK</span>
+          <span class="brand-text"><small>Décorations mariages & événements</small></span>
         </a>
 
         <input id="nav-toggle" type="checkbox" />
@@ -300,11 +301,14 @@ const iconPath = {
           <div class="hero-art" aria-hidden="true">
             <div class="art-shell">
               <div class="art-stage">
-                <img class="hero-photo-main" src="/images/decomk/120.png" alt="" />
-                <div class="hero-badge"><img src="/logo-decomk.svg" alt="" /> DécoMK</div>
+                <div class="hero-badge">Style DécoMK</div>
+                <div class="brand-display">
+                  <div class="logo-word">DECOMK</div>
+                  <div class="logo-subtitle">Décorations mariages & événements</div>
+                </div>
                 <div class="hero-pill-row">
                   <div class="hero-pill"><strong>Spécialisée en décorations</strong><p>Un univers chic pour les événements et mariages.</p></div>
-                  <div class="hero-pill"><strong>Palette violette & or</strong><p>Une identité lumineuse inspirée du site actuel.</p></div>
+                  <div class="hero-pill"><strong>Palette mauve</strong><p>Une identité douce et cohérente inspirée du site actuel.</p></div>
                 </div>
               </div>
             </div>
@@ -317,7 +321,7 @@ const iconPath = {
           <article class="card intro-card">
             <span class="eyebrow">Univers DécoMK</span>
             <h2 class="section-title script-title">Un décor qui donne le ton dès le premier regard.</h2>
-            <p class="section-copy">Le site actuel présente une proposition simple et directe: créer des décors pour les événements importants. Cette version reprend ce contenu, les couleurs violet et or, les liens sociaux et les photos existantes dans une présentation Astro plus premium.</p>
+            <p class="section-copy">Le site actuel présente une proposition simple et directe: créer des décors pour les événements importants. Cette version reprend ce contenu, la palette mauve, les liens sociaux et la structure existante dans une présentation Astro plus premium.</p>
           </article>
           <article class="card intro-card">
             <span class="eyebrow">Pourquoi DécoMK</span>
@@ -349,17 +353,18 @@ const iconPath = {
               <span class="eyebrow">Réalisations</span>
               <h2 class="section-title">Des inspirations pour imaginer votre décor.</h2>
             </div>
-            <p class="gallery-copy">Les images proviennent du site DécoMK actuel et servent de base visuelle à cette nouvelle version: décors, compositions, ambiances et détails prêts à inspirer un projet.</p>
+            <p class="gallery-copy">Les photos de réalisations seront ajoutées plus tard. Pour l’instant, la section garde une structure propre et prête à recevoir vos meilleures images.</p>
           </div>
           <div class="gallery-grid">
-            {gallery.map((item) => (
-              <figure class="gallery-card">
-                <img src={item.src} alt={item.alt} loading="lazy" />
-                <figcaption>
-                  <div class="gallery-topline"><strong>{item.tag}</strong><span class="tag">DécoMK</span></div>
-                  <span class="gallery-title">{item.title}</span>
-                </figcaption>
-              </figure>
+            {realizationPlaceholders.map((item) => (
+              <article class="gallery-card placeholder-card">
+                <div class="placeholder-glow" aria-hidden="true"></div>
+                <div class="gallery-card-body">
+                  <div class="gallery-topline"><strong>{item.tag}</strong><span class="tag">À venir</span></div>
+                  <h3 class="gallery-title">{item.title}</h3>
+                  <p>{item.text}</p>
+                </div>
+              </article>
             ))}
           </div>
         </div>
@@ -473,7 +478,7 @@ const iconPath = {
     <footer>
       <div class="container card footer-card">
         <div class="footer-brand">
-          <img src="/logo-decomk.svg" alt="Logo DécoMK" />
+          <span class="brand-mark" aria-hidden="true">DECOMK</span>
           <div><strong>DécoMK</strong><div class="footer-note">Décorations mariages et événements.</div></div>
         </div>
         <div>
