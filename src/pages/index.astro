@@ -180,7 +180,10 @@ const iconPath = {
       .gallery-card { overflow: hidden; border-radius: 22px; background: white; border: 1px solid rgba(46, 33, 64, 0.07); box-shadow: var(--shadow-soft); margin: 0; }
       .gallery-card-body { padding: 1.25rem; display: grid; gap: 0.65rem; }
       .placeholder-card { position: relative; min-height: 12.5rem; background: linear-gradient(145deg, rgba(255,255,255,0.96), rgba(246,240,255,0.9)); }
-      .placeholder-glow { height: 4rem; background: radial-gradient(circle at 25% 30%, rgba(139,91,214,0.28), transparent 32%), radial-gradient(circle at 74% 70%, rgba(201,182,255,0.5), transparent 38%), linear-gradient(135deg, rgba(91,44,145,0.12), rgba(167,127,232,0.12)); border-bottom: 1px solid rgba(46,33,64,0.06); }
+      .placeholder-glow { height: 4rem; display: flex; align-items: center; padding: 0 1.25rem; background: radial-gradient(circle at 25% 30%, rgba(139,91,214,0.28), transparent 32%), radial-gradient(circle at 74% 70%, rgba(201,182,255,0.5), transparent 38%), linear-gradient(135deg, rgba(91,44,145,0.12), rgba(167,127,232,0.12)); border-bottom: 1px solid rgba(46,33,64,0.06); }
+      .placeholder-glow .gallery-topline { width: 100%; }
+      .placeholder-glow .gallery-topline strong { color: var(--text); }
+      .placeholder-glow .tag { background: rgba(255,255,255,0.62); }
       .placeholder-card p { margin: 0; color: var(--muted); line-height: 1.7; }
       .gallery-topline { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
       .tag { display: inline-flex; align-items: center; min-height: 2rem; padding: 0 0.8rem; border-radius: 999px; background: rgba(167, 127, 232, 0.16); color: var(--purple); font-size: 0.8rem; font-weight: 800; }
@@ -392,9 +395,10 @@ const iconPath = {
           <div class="gallery-grid">
             {realizationPlaceholders.map((item) => (
               <article class="gallery-card placeholder-card reveal-block">
-                <div class="placeholder-glow" aria-hidden="true"></div>
-                <div class="gallery-card-body">
+                <div class="placeholder-glow">
                   <div class="gallery-topline"><strong>{item.tag}</strong><span class="tag">À venir</span></div>
+                </div>
+                <div class="gallery-card-body">
                   <h3 class="gallery-title">{item.title}</h3>
                   <p>{item.text}</p>
                 </div>
