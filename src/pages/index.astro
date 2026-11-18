@@ -214,6 +214,31 @@ const iconPath = {
       .footer-brand .brand-mark { font-size: 1.7rem; }
       .footer-note { color: var(--muted); font-size: 0.95rem; }
 
+      /* Révélation et survol inspirés des blocs de SECAFRICOM. */
+      .has-motion .reveal-block {
+        opacity: 0;
+        transform: translateY(3.25rem) scale(0.985);
+        transition: opacity 0.9s ease var(--reveal-delay, 0s), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0s), border-color 0.28s, box-shadow 0.28s, background 0.28s;
+        will-change: opacity, transform;
+      }
+      .has-motion .reveal-block.is-visible { opacity: 1; transform: translateZ(0); will-change: auto; }
+      .reveal-block:nth-child(2) { --reveal-delay: 0.07s; }
+      .reveal-block:nth-child(3) { --reveal-delay: 0.14s; }
+      .reveal-block:nth-child(4) { --reveal-delay: 0.21s; }
+      @media (hover: hover) and (pointer: fine) {
+        .has-motion .reveal-block.is-visible:hover {
+          border-color: rgba(91, 44, 145, 0.3);
+          box-shadow: 0 20px 52px rgba(49, 22, 81, 0.18);
+          transform: translateY(-0.18rem);
+        }
+      }
+      @media (hover: none), (pointer: coarse) {
+        .has-motion .reveal-block.is-visible:active { transform: translateY(-0.1rem); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .has-motion .reveal-block { opacity: 1; transform: none; transition: none; }
+      }
+
       @media (min-width: 1081px) {
         .process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .process-grid .process-card:last-child { grid-column: span 2; }
@@ -301,13 +326,13 @@ const iconPath = {
               <a class="button button-secondary" href="tel:+18195881387">819.588.1387</a>
             </div>
             <div class="hero-highlights" aria-label="Points forts">
-              <div class="highlight"><strong>Sur mesure</strong>Un décor adapté au thème, aux couleurs et au lieu.</div>
-              <div class="highlight"><strong>Location</strong>Une sélection d’éléments décoratifs pour compléter l’ambiance.</div>
-              <div class="highlight"><strong>Événementiel</strong>Mariages, galas, privés, corporatifs et célébrations.</div>
+              <div class="highlight reveal-block"><strong>Sur mesure</strong>Un décor adapté au thème, aux couleurs et au lieu.</div>
+              <div class="highlight reveal-block"><strong>Location</strong>Une sélection d’éléments décoratifs pour compléter l’ambiance.</div>
+              <div class="highlight reveal-block"><strong>Événementiel</strong>Mariages, galas, privés, corporatifs et célébrations.</div>
             </div>
           </div>
 
-          <div class="hero-art" aria-hidden="true">
+          <div class="hero-art reveal-block" aria-hidden="true">
             <div class="art-shell">
               <div class="art-stage">
                 <div class="hero-badge">Style DécoMK</div>
@@ -327,12 +352,12 @@ const iconPath = {
 
       <section class="section section-alt">
         <div class="container grid-2">
-          <article class="card intro-card">
+          <article class="card intro-card reveal-block">
             <span class="eyebrow">Univers DécoMK</span>
             <h2 class="section-title script-title">Un décor qui donne le ton dès le premier regard.</h2>
             <p class="section-copy">Le site actuel présente une proposition simple et directe: créer des décors pour les événements importants. Cette version reprend ce contenu, la palette mauve, les liens sociaux et la structure existante dans une présentation Astro plus premium.</p>
           </article>
-          <article class="card intro-card">
+          <article class="card intro-card reveal-block">
             <span class="eyebrow">Pourquoi DécoMK</span>
             <ul class="benefit-list">{benefits.map((item) => <li>{item}</li>)}</ul>
           </article>
@@ -345,7 +370,7 @@ const iconPath = {
           <h2 class="section-title">Des décors uniques et élégants pour vos événements marquants.</h2>
           <div class="services-grid">
             {services.map((service, index) => (
-              <article class="card service-card">
+              <article class="card service-card reveal-block">
                 <div class="service-icon">0{index + 1}</div>
                 <h3>{service.title}</h3>
                 <p>{service.text}</p>
@@ -366,7 +391,7 @@ const iconPath = {
           </div>
           <div class="gallery-grid">
             {realizationPlaceholders.map((item) => (
-              <article class="gallery-card placeholder-card">
+              <article class="gallery-card placeholder-card reveal-block">
                 <div class="placeholder-glow" aria-hidden="true"></div>
                 <div class="gallery-card-body">
                   <div class="gallery-topline"><strong>{item.tag}</strong><span class="tag">À venir</span></div>
@@ -389,7 +414,7 @@ const iconPath = {
           <div class="process-panel">
             <div class="process-grid">
               {process.map((item) => (
-                <article class="process-card">
+                <article class="process-card reveal-block">
                   <div class="process-step">{item.step}</div>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
@@ -410,7 +435,7 @@ const iconPath = {
             <p class="gallery-copy">Découvrez une partie de la sélection présentée sur le site actuel pour sublimer mariages, célébrations et événements.</p>
           </div>
           <div class="location-grid">
-            {locationImages.map((src, index) => <img src={src} alt={`Élément décoratif en location ${index + 1}`} loading="lazy" />)}
+            {locationImages.map((src, index) => <img class="reveal-block" src={src} alt={`Élément décoratif en location ${index + 1}`} loading="lazy" />)}
           </div>
         </div>
       </section>
@@ -421,7 +446,7 @@ const iconPath = {
           <h2 class="section-title">Tout ce qu’il faut pour lancer votre demande.</h2>
           <div class="faq-grid">
             {faq.map((item) => (
-              <article class="card faq-card"><h3>{item.q}</h3><p>{item.a}</p></article>
+              <article class="card faq-card reveal-block"><h3>{item.q}</h3><p>{item.a}</p></article>
             ))}
           </div>
         </div>
@@ -429,7 +454,7 @@ const iconPath = {
 
       <section class="section section-alt" id="contact">
         <div class="container contact-grid">
-          <article class="card contact-card">
+          <article class="card contact-card reveal-block">
             <span class="eyebrow">Contact</span>
             <h2 class="section-title">Parlez-nous du décor que vous imaginez.</h2>
             <p class="section-copy contact-copy">Partagez les grandes lignes de votre événement et DécoMK pourra vous recontacter avec une proposition adaptée.</p>
@@ -457,7 +482,7 @@ const iconPath = {
             </form>
           </article>
 
-          <article class="card contact-aside">
+          <article class="card contact-aside reveal-block">
             <span class="eyebrow">Coordonnées</span>
             <h2 class="section-title">Contactez-nous.</h2>
             <p>Pour une demande rapide, vous pouvez appeler DécoMK ou envoyer les détails via le formulaire.</p>
@@ -526,6 +551,33 @@ const iconPath = {
         navLinks.forEach((link) => link.addEventListener('click', () => {
           if (navToggle instanceof HTMLInputElement) navToggle.checked = false;
         }));
+
+        document.documentElement.classList.add('has-motion');
+        const revealBlocks = document.querySelectorAll('.reveal-block');
+        const reveal = (block) => block.classList.add('is-visible');
+        const revealInView = () => {
+          const viewportBottom = window.innerHeight * 0.92;
+          revealBlocks.forEach((block) => {
+            const bounds = block.getBoundingClientRect();
+            if (bounds.top < viewportBottom && bounds.bottom > 0) reveal(block);
+          });
+        };
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+          revealBlocks.forEach(reveal);
+        } else {
+          const observer = new IntersectionObserver((entries, activeObserver) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              reveal(entry.target);
+              activeObserver.unobserve(entry.target);
+            });
+          }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+          revealBlocks.forEach((block) => observer.observe(block));
+          revealInView();
+          window.addEventListener('scroll', revealInView, { passive: true });
+          window.addEventListener('resize', revealInView);
+        }
+
         if (!(form instanceof HTMLFormElement)) return;
         form.addEventListener('submit', async (event) => {
           event.preventDefault();
